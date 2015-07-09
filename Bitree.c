@@ -1,30 +1,35 @@
-typedef int Item;
-typedef struct node
+#include "BiTree.h"
+#include <malloc.h>
+#include <stdlib.h>
+
+BiTree InitBiTree(BiTNode *root)
 {
-	/* data */
-	struct node * lchild;
-	struct node * rchild;
-	Item data;
-}BiTNode,*BiTree;
+	BiTree tree=root;
+	return root;
+}
 
-/*构造一颗新的二叉树*/
-/*生成节点*/
-/*释放节点*/
-/*清空一颗二叉树*/
-/*销毁一颗二叉树*/
-/*判定是否为空*/
+BiTNode *MakeNode(Item item,BiTNode *lichild,BiTNode *rchild)
+{
+	BiTNode * pnode=(BiTNode *)malloc(sizeof(BiTNode));
+	if(pnode)
+	{
+		pnode->data=item;
+		pnode->lichild=lichild;
+		pnode->rchild=rchild;
+	}
+	return pnode;
+}
+
 /*返回树的深度*/
-/*返回根*/
-/*返回节点值*/
-/*设置节点值*/
-/*设置左子树*/
-/*设置右子书*/
-/*返回左子树*/
-/*返回右子树*/
-/*插入新子树*/
-/*删除子树*/
-/*先序遍历二叉树*/
-/*中序遍历二叉树*/
-/*后序遍历二叉树*/
-
-
+int GetDeepth(BiTree tree)
+{
+	int cd,ld,rd;
+	cd=ld=rd=0;
+	if(tree)
+	{
+		ld=GetDeepth(tree->lichild);
+		rd=GetDeepth(tree->rchild);
+		cd=(ld>rd?ld:rd);
+		return cd+1;
+	}
+}
