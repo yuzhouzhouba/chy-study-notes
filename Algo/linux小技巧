@@ -1,0 +1,5 @@
+安装软件：
+sudo apt-get install upgrade
+sudo apt-get install update
+sudo dkpg -i xxxxx.deb
+sudo apt-get -f install //补全安装信息

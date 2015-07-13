@@ -1,0 +1,13 @@
+how to use the GDB
+
+file xxx.c
+r = run;
+b = break;
+c = continue;
+s = step;
+n = next 
+
+关于在调试的时候，n是跳过这个函数，s是进去，比如我最开始就进入printf函数，然而并不需要调试pritnf函数;
+
+vim编辑器
+yy 复制本行，在确定粘贴的地方按p粘贴
